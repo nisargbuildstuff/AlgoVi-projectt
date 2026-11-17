@@ -9,7 +9,7 @@ export function App() {
   const [currentTab, setCurrentTab] = useState<WorkspaceTab>('bubble_sort');
 
   return (
-    <div className="min-h-screen bg-[#060913] text-slate-100 flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="min-h-screen bg-[var(--page-background)] text-[var(--text-primary)] flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
       {/* Top Sticky Navigation */}
       <Navbar currentTab={currentTab} onTabChange={setCurrentTab} />
 
@@ -21,7 +21,7 @@ export function App() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-slate-800/80 bg-[#070b16]/95 py-6 mt-12 text-xs text-slate-400">
+      <footer className="border-t border-slate-800/80 bg-[var(--surface-card)]/95 py-6 mt-12 text-xs text-slate-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <span className="font-bold text-white tracking-wide">AlgoVista Engine</span>

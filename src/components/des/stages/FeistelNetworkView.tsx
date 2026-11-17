@@ -45,7 +45,7 @@ export const FeistelNetworkView: React.FC<FeistelNetworkViewProps> = ({
         <button
           type="button"
           onClick={onOpenRoundFunctionInspector}
-          className="px-3.5 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs flex items-center gap-1.5 shadow-md shadow-purple-600/20 active:scale-95 transition"
+          className="px-3.5 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-[var(--text-on-accent)] font-semibold text-xs flex items-center gap-1.5 shadow-md shadow-purple-600/20 active:scale-95 transition"
         >
           <Cpu className="w-3.5 h-3.5" />
           <span>Inspect Inside f(R, K)</span>
@@ -81,7 +81,7 @@ export const FeistelNetworkView: React.FC<FeistelNetworkViewProps> = ({
                 onClick={() => onSelectRound(r)}
                 className={`py-2 rounded-lg border text-center transition-all ${
                   isSelected
-                    ? 'bg-purple-600 text-white font-bold border-purple-400 shadow-lg shadow-purple-600/30 ring-2 ring-purple-400'
+                    ? 'bg-purple-600 text-[var(--text-on-accent)] font-bold border-purple-400 shadow-lg shadow-purple-600/30 ring-2 ring-purple-400'
                     : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800'
                 }`}
               >
@@ -205,79 +205,79 @@ export const FeistelNetworkView: React.FC<FeistelNetworkViewProps> = ({
             <svg viewBox="0 0 640 420" className="w-full max-w-[580px] h-auto select-none font-sans">
               <defs>
                 <marker id="fa1" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#64748b" />
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="var(--text-muted)" />
                 </marker>
                 <marker id="fa2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#c084fc" />
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="var(--secondary-accent)" />
                 </marker>
                 <marker id="fa3" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#34d399" />
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="var(--success)" />
                 </marker>
               </defs>
 
               {/* Left In */}
-              <rect x="40" y="20" width="170" height="52" rx="8" fill="#0f172a" stroke="#38bdf8" strokeWidth="2" />
-              <text x="125" y="41" textAnchor="middle" fill="#38bdf8" fontSize="10" fontWeight="bold">Left In (L{selectedRound - 1})</text>
-              <text x="125" y="60" textAnchor="middle" fill="#f1f5f9" fontSize="11" fontFamily="monospace" fontWeight="bold">{prevL}</text>
+              <rect x="40" y="20" width="170" height="52" rx="8" fill="var(--surface-inset)" stroke="var(--accent)" strokeWidth="2" />
+              <text x="125" y="41" textAnchor="middle" fill="var(--accent)" fontSize="10" fontWeight="bold">Left In (L{selectedRound - 1})</text>
+              <text x="125" y="60" textAnchor="middle" fill="var(--text-primary)" fontSize="11" fontFamily="monospace" fontWeight="bold">{prevL}</text>
 
               {/* Right In */}
-              <rect x="390" y="20" width="170" height="52" rx="8" fill="#0f172a" stroke="#34d399" strokeWidth="2" />
-              <text x="475" y="41" textAnchor="middle" fill="#34d399" fontSize="10" fontWeight="bold">Right In (R{selectedRound - 1})</text>
-              <text x="475" y="60" textAnchor="middle" fill="#f1f5f9" fontSize="11" fontFamily="monospace" fontWeight="bold">{prevR}</text>
+              <rect x="390" y="20" width="170" height="52" rx="8" fill="var(--surface-inset)" stroke="var(--success)" strokeWidth="2" />
+              <text x="475" y="41" textAnchor="middle" fill="var(--success)" fontSize="10" fontWeight="bold">Right In (R{selectedRound - 1})</text>
+              <text x="475" y="60" textAnchor="middle" fill="var(--text-primary)" fontSize="11" fontFamily="monospace" fontWeight="bold">{prevR}</text>
 
               {/* Arrows down */}
-              <line x1="125" y1="72" x2="125" y2="195" stroke="#64748b" strokeWidth="2" markerEnd="url(#fa1)" />
-              <line x1="475" y1="72" x2="475" y2="120" stroke="#64748b" strokeWidth="2" markerEnd="url(#fa1)" />
+              <line x1="125" y1="72" x2="125" y2="195" stroke="var(--text-muted)" strokeWidth="2" markerEnd="url(#fa1)" />
+              <line x1="475" y1="72" x2="475" y2="120" stroke="var(--text-muted)" strokeWidth="2" markerEnd="url(#fa1)" />
 
               {/* Subkey */}
-              <rect x="490" y="150" width="130" height="40" rx="6" fill="#1e293b" stroke="#fbbf24" strokeWidth="1.5" />
-              <text x="555" y="166" textAnchor="middle" fill="#fbbf24" fontSize="9" fontWeight="bold">Subkey K{selectedRound}</text>
-              <text x="555" y="181" textAnchor="middle" fill="#fef08a" fontSize="9" fontFamily="monospace">{subkey}</text>
-              <line x1="490" y1="170" x2="455" y2="170" stroke="#fbbf24" strokeWidth="1.5" markerEnd="url(#fa1)" />
+              <rect x="490" y="150" width="130" height="40" rx="6" fill="var(--surface-inset)" stroke="var(--highlight)" strokeWidth="1.5" />
+              <text x="555" y="166" textAnchor="middle" fill="var(--highlight)" fontSize="9" fontWeight="bold">Subkey K{selectedRound}</text>
+              <text x="555" y="181" textAnchor="middle" fill="var(--highlight-text)" fontSize="9" fontFamily="monospace">{subkey}</text>
+              <line x1="490" y1="170" x2="455" y2="170" stroke="var(--highlight)" strokeWidth="1.5" markerEnd="url(#fa1)" />
 
               {/* f() box */}
               <g onClick={onOpenRoundFunctionInspector} className="cursor-pointer group">
-                <rect x="310" y="120" width="180" height="100" rx="10" fill="#2e1065" stroke="#a855f7" strokeWidth="2.5"
+                <rect x="310" y="120" width="180" height="100" rx="10" fill="var(--secondary-accent-soft)" stroke="var(--secondary-accent)" strokeWidth="2.5"
                   className="group-hover:fill-purple-900/60 transition" />
-                <text x="400" y="143" textAnchor="middle" fill="#e9d5ff" fontSize="10" fontWeight="bold">Round Function f(R, K)</text>
-                <text x="400" y="160" textAnchor="middle" fill="#c084fc" fontSize="8">E-Table → XOR key → S-boxes → P-box</text>
-                <rect x="330" y="172" width="140" height="24" rx="4" fill="#1e1b4b" stroke="#8b5cf6" strokeWidth="1" />
-                <text x="400" y="188" textAnchor="middle" fill="#f3e8ff" fontSize="10" fontFamily="monospace" fontWeight="bold">f = {fOutput}</text>
-                <text x="400" y="212" textAnchor="middle" fill="#a78bfa" fontSize="8" fontWeight="bold">Click to inspect</text>
+                <text x="400" y="143" textAnchor="middle" fill="var(--secondary-accent-text)" fontSize="10" fontWeight="bold">Round Function f(R, K)</text>
+                <text x="400" y="160" textAnchor="middle" fill="var(--secondary-accent)" fontSize="8">E-Table → XOR key → S-boxes → P-box</text>
+                <rect x="330" y="172" width="140" height="24" rx="4" fill="var(--secondary-accent-soft)" stroke="var(--secondary-accent)" strokeWidth="1" />
+                <text x="400" y="188" textAnchor="middle" fill="var(--secondary-accent-text)" fontSize="10" fontFamily="monospace" fontWeight="bold">f = {fOutput}</text>
+                <text x="400" y="212" textAnchor="middle" fill="var(--secondary-accent)" fontSize="8" fontWeight="bold">Click to inspect</text>
               </g>
 
               {/* f output to XOR */}
-              <path d="M 310 175 L 155 175 L 155 198" fill="none" stroke="#c084fc" strokeWidth="2" markerEnd="url(#fa2)" />
+              <path d="M 310 175 L 155 175 L 155 198" fill="none" stroke="var(--secondary-accent)" strokeWidth="2" markerEnd="url(#fa2)" />
 
               {/* XOR */}
-              <circle cx="125" cy="215" r="18" fill="#1e293b" stroke="#38bdf8" strokeWidth="2" />
-              <text x="125" y="221" textAnchor="middle" fill="#38bdf8" fontSize="20" fontWeight="bold">⊕</text>
+              <circle cx="125" cy="215" r="18" fill="var(--surface-inset)" stroke="var(--accent)" strokeWidth="2" />
+              <text x="125" y="221" textAnchor="middle" fill="var(--accent)" fontSize="20" fontWeight="bold">⊕</text>
 
               {/* Outputs */}
               {selectedRound < 16 ? (
                 <>
-                  <path d="M 475 72 L 475 92 L 285 290 L 125 320" fill="none" stroke="#34d399" strokeWidth="2" markerEnd="url(#fa3)" />
-                  <text x="310" y="275" fill="#34d399" fontSize="9" fontWeight="bold">New L = Old R</text>
-                  <path d="M 125 233 L 125 255 L 345 300 L 475 320" fill="none" stroke="#f43f5e" strokeWidth="2" markerEnd="url(#fa1)" />
-                  <text x="175" y="272" fill="#f43f5e" fontSize="9" fontWeight="bold">New R = Old L XOR f</text>
+                  <path d="M 475 72 L 475 92 L 285 290 L 125 320" fill="none" stroke="var(--success)" strokeWidth="2" markerEnd="url(#fa3)" />
+                  <text x="310" y="275" fill="var(--success)" fontSize="9" fontWeight="bold">New L = Old R</text>
+                  <path d="M 125 233 L 125 255 L 345 300 L 475 320" fill="none" stroke="var(--danger)" strokeWidth="2" markerEnd="url(#fa1)" />
+                  <text x="175" y="272" fill="var(--danger)" fontSize="9" fontWeight="bold">New R = Old L XOR f</text>
                 </>
               ) : (
                 <>
-                  <path d="M 125 233 L 125 320" fill="none" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#fa1)" />
-                  <path d="M 475 72 L 475 320" fill="none" stroke="#34d399" strokeWidth="2" markerEnd="url(#fa3)" />
-                  <rect x="230" y="265" width="175" height="28" rx="6" fill="#451a03" stroke="#f59e0b" strokeWidth="1.5" />
-                  <text x="318" y="283" textAnchor="middle" fill="#fde68a" fontSize="9" fontWeight="bold">Round 16: No swap!</text>
+                  <path d="M 125 233 L 125 320" fill="none" stroke="var(--accent)" strokeWidth="2" markerEnd="url(#fa1)" />
+                  <path d="M 475 72 L 475 320" fill="none" stroke="var(--success)" strokeWidth="2" markerEnd="url(#fa3)" />
+                  <rect x="230" y="265" width="175" height="28" rx="6" fill="var(--highlight-soft)" stroke="var(--highlight)" strokeWidth="1.5" />
+                  <text x="318" y="283" textAnchor="middle" fill="var(--highlight-text)" fontSize="9" fontWeight="bold">Round 16: No swap!</text>
                 </>
               )}
 
               {/* Output boxes */}
-              <rect x="40" y="330" width="170" height="52" rx="8" fill="#0f172a" stroke="#34d399" strokeWidth="2" />
-              <text x="125" y="350" textAnchor="middle" fill="#34d399" fontSize="10" fontWeight="bold">Left Out (L{selectedRound})</text>
-              <text x="125" y="368" textAnchor="middle" fill="#f1f5f9" fontSize="11" fontFamily="monospace" fontWeight="bold">{nextL}</text>
+              <rect x="40" y="330" width="170" height="52" rx="8" fill="var(--surface-inset)" stroke="var(--success)" strokeWidth="2" />
+              <text x="125" y="350" textAnchor="middle" fill="var(--success)" fontSize="10" fontWeight="bold">Left Out (L{selectedRound})</text>
+              <text x="125" y="368" textAnchor="middle" fill="var(--text-primary)" fontSize="11" fontFamily="monospace" fontWeight="bold">{nextL}</text>
 
-              <rect x="390" y="330" width="170" height="52" rx="8" fill="#0f172a" stroke="#f43f5e" strokeWidth="2" />
-              <text x="475" y="350" textAnchor="middle" fill="#f43f5e" fontSize="10" fontWeight="bold">Right Out (R{selectedRound})</text>
-              <text x="475" y="368" textAnchor="middle" fill="#f1f5f9" fontSize="11" fontFamily="monospace" fontWeight="bold">{nextR}</text>
+              <rect x="390" y="330" width="170" height="52" rx="8" fill="var(--surface-inset)" stroke="var(--danger)" strokeWidth="2" />
+              <text x="475" y="350" textAnchor="middle" fill="var(--danger)" fontSize="10" fontWeight="bold">Right Out (R{selectedRound})</text>
+              <text x="475" y="368" textAnchor="middle" fill="var(--text-primary)" fontSize="11" fontFamily="monospace" fontWeight="bold">{nextR}</text>
             </svg>
           </div>
         )}

@@ -144,7 +144,7 @@ export const KeyScheduleView: React.FC<KeyScheduleViewProps> = ({
                 onClick={() => onSelectRound(r)}
                 className={`py-2 px-1 rounded-lg border text-center transition ${
                   isSelected
-                    ? 'bg-amber-500 text-slate-950 font-bold border-amber-400 ring-2 ring-amber-400 shadow-md shadow-amber-500/30'
+                    ? 'bg-amber-500 text-[var(--text-on-highlight)] font-bold border-amber-400 ring-2 ring-amber-400 shadow-md shadow-amber-500/30'
                     : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800'
                 }`}
               >
@@ -248,7 +248,7 @@ export const KeyScheduleView: React.FC<KeyScheduleViewProps> = ({
                       <button
                         type="button"
                         onClick={() => onSelectRound(rd.round)}
-                        className="px-2 py-0.5 rounded bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-[10px] text-slate-300 transition"
+                        className="px-2 py-0.5 rounded bg-slate-800 hover:bg-amber-500 hover:text-[var(--text-on-highlight)] text-[10px] text-slate-300 transition"
                       >
                         Inspect
                       </button>

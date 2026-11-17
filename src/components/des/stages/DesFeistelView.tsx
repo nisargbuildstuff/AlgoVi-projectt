@@ -71,7 +71,7 @@ export const DesFeistelView: React.FC<DesFeistelViewProps> = ({
         <button
           type="button"
           onClick={() => { setActiveOp(null); setInspectingOp(true); }}
-          className="px-3.5 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs flex items-center gap-1.5 shadow-md shadow-purple-600/20 active:scale-95 transition"
+          className="px-3.5 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-[var(--text-on-accent)] font-semibold text-xs flex items-center gap-1.5 shadow-md shadow-purple-600/20 active:scale-95 transition"
         >
           <Cpu className="w-3.5 h-3.5" />
           <span>Inspect f(R, K) Operations</span>
@@ -95,7 +95,7 @@ export const DesFeistelView: React.FC<DesFeistelViewProps> = ({
                 onClick={() => onSelectRound(r)}
                 className={`py-2 rounded-lg border text-center transition-all ${
                   isSelected
-                    ? 'bg-purple-600 text-white font-bold border-purple-400 shadow-lg shadow-purple-600/30 ring-2 ring-purple-400'
+                    ? 'bg-purple-600 text-[var(--text-on-accent)] font-bold border-purple-400 shadow-lg shadow-purple-600/30 ring-2 ring-purple-400'
                     : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800'
                 }`}
               >

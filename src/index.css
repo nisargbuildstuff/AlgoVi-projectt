@@ -1,31 +1,212 @@
 @import "tailwindcss";
 
+@theme {
+  --color-slate-50: var(--text-primary);
+  --color-slate-100: var(--text-primary);
+  --color-slate-200: var(--text-primary);
+  --color-slate-300: var(--text-secondary);
+  --color-slate-400: var(--text-secondary);
+  --color-slate-500: var(--text-muted);
+  --color-slate-600: var(--text-muted);
+  --color-slate-700: var(--border-strong);
+  --color-slate-800: var(--surface-inset);
+  --color-slate-900: var(--surface-card);
+  --color-slate-950: var(--surface-raised);
+  --color-white: var(--text-primary);
+  --color-black: var(--text-primary);
+
+  --color-cyan-200: var(--accent-soft-text);
+  --color-cyan-300: var(--accent-text);
+  --color-cyan-400: var(--accent);
+  --color-cyan-500: var(--accent);
+  --color-cyan-950: var(--accent-soft);
+  --color-sky-200: var(--accent-soft-text);
+  --color-sky-300: var(--accent-text);
+  --color-sky-400: var(--accent);
+  --color-sky-500: var(--accent);
+  --color-sky-600: var(--accent-strong);
+  --color-sky-700: var(--accent-strong);
+  --color-sky-800: var(--accent-soft);
+  --color-sky-900: var(--accent-soft);
+  --color-sky-950: var(--accent-soft);
+  --color-blue-300: var(--accent-text);
+  --color-blue-400: var(--accent);
+  --color-blue-500: var(--accent);
+  --color-blue-600: var(--accent-strong);
+  --color-teal-600: var(--accent-strong);
+
+  --color-emerald-200: var(--success-text);
+  --color-emerald-300: var(--success-text);
+  --color-emerald-400: var(--success);
+  --color-emerald-500: var(--success);
+  --color-emerald-600: var(--success-strong);
+  --color-emerald-700: var(--success-soft);
+  --color-emerald-800: var(--success-soft);
+  --color-emerald-900: var(--success-soft);
+  --color-emerald-950: var(--success-soft);
+
+  --color-amber-200: var(--highlight-text);
+  --color-amber-300: var(--highlight-text);
+  --color-amber-400: var(--highlight);
+  --color-amber-500: var(--highlight);
+  --color-amber-600: var(--highlight-strong);
+  --color-amber-700: var(--highlight-soft);
+  --color-amber-950: var(--highlight-soft);
+
+  --color-purple-200: var(--secondary-accent-text);
+  --color-purple-300: var(--secondary-accent-text);
+  --color-purple-400: var(--secondary-accent);
+  --color-purple-500: var(--secondary-accent);
+  --color-purple-600: var(--secondary-accent-strong);
+  --color-purple-700: var(--secondary-accent-soft);
+  --color-purple-800: var(--secondary-accent-soft);
+  --color-purple-900: var(--secondary-accent-soft);
+  --color-purple-950: var(--secondary-accent-soft);
+  --color-indigo-300: var(--secondary-accent-text);
+  --color-indigo-400: var(--secondary-accent);
+  --color-indigo-500: var(--secondary-accent);
+  --color-indigo-600: var(--secondary-accent-strong);
+  --color-indigo-800: var(--secondary-accent-soft);
+  --color-indigo-950: var(--secondary-accent-soft);
+
+  --color-rose-200: var(--danger-text);
+  --color-rose-300: var(--danger-text);
+  --color-rose-400: var(--danger);
+  --color-rose-500: var(--danger);
+  --color-rose-700: var(--danger-soft);
+  --color-rose-950: var(--danger-soft);
+  --color-red-400: var(--danger);
+  --color-red-500: var(--danger);
+  --color-pink-300: var(--danger-text);
+  --color-pink-400: var(--danger);
+  --color-pink-500: var(--danger);
+  --color-pink-950: var(--danger-soft);
+}
+
+:root {
+  color-scheme: light;
+  --page-background: #FAF7F2;
+  --surface-card: #FFFDF9;
+  --surface-raised: #F5F1EA;
+  --surface-inset: #EAE5DC;
+  --border-subtle: #DED8CD;
+  --border-strong: #C5BDAF;
+  --text-primary: #1F2430;
+  --text-secondary: #515862;
+  --text-muted: #626A74;
+  --text-on-accent: #FFFFFF;
+  --text-on-highlight: #1F2430;
+  --accent: #1F6F78;
+  --accent-strong: #185760;
+  --accent-text: #1F6F78;
+  --accent-soft-text: #205B61;
+  --accent-soft: #DCEBE9;
+  --highlight: #C9A227;
+  --highlight-strong: #8A6812;
+  --highlight-text: #71560F;
+  --highlight-soft: #F4EBCB;
+  --success: #347563;
+  --success-strong: #286250;
+  --success-text: #286250;
+  --success-soft: #DFECE6;
+  --danger: #A64E50;
+  --danger-text: #934246;
+  --danger-soft: #F2E2E0;
+  --secondary-accent: #706284;
+  --secondary-accent-strong: #5B4D71;
+  --secondary-accent-text: #5B4D71;
+  --secondary-accent-soft: #EBE6EF;
+  --glow-accent: color-mix(in srgb, var(--accent) 10%, transparent);
+  --glow-secondary: color-mix(in srgb, var(--secondary-accent) 7%, transparent);
+  --glow-success: color-mix(in srgb, var(--success) 6%, transparent);
+  --glow-highlight: color-mix(in srgb, var(--highlight) 70%, transparent);
+  --glow-on-accent: color-mix(in srgb, var(--text-on-accent) 80%, transparent);
+  --shadow-card: rgba(31, 36, 48, 0.08);
+  --shadow-card-hover: rgba(31, 36, 48, 0.12);
+  --shadow-inset: rgba(255, 255, 255, 0.8);
+  --shadow-color: rgba(31, 36, 48, 0.16);
+  --badge-highlight-bg: color-mix(in srgb, var(--highlight) 14%, transparent);
+  --badge-highlight-border: color-mix(in srgb, var(--highlight) 48%, transparent);
+  --badge-success-bg: color-mix(in srgb, var(--success) 12%, transparent);
+  --badge-success-border: color-mix(in srgb, var(--success) 45%, transparent);
+  --badge-danger-bg: color-mix(in srgb, var(--danger) 12%, transparent);
+  --badge-danger-border: color-mix(in srgb, var(--danger) 45%, transparent);
+  --badge-accent-bg: color-mix(in srgb, var(--accent) 12%, transparent);
+  --badge-accent-border: color-mix(in srgb, var(--accent) 45%, transparent);
+  --scrollbar-thumb: #C5BDAF;
+  --scrollbar-thumb-hover: #9B9387;
+  --scrollbar-border: color-mix(in srgb, var(--text-primary) 8%, transparent);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --page-background: #0F1419;
+  --surface-card: #171E24;
+  --surface-raised: #1D262D;
+  --surface-inset: #28343B;
+  --border-subtle: #33424A;
+  --border-strong: #52616A;
+  --text-primary: #E8E4DC;
+  --text-secondary: #C0BCB4;
+  --text-muted: #969A9C;
+  --text-on-accent: #0F1419;
+  --text-on-highlight: #0F1419;
+  --accent: #5FB3B3;
+  --accent-strong: #78C7C4;
+  --accent-text: #75C9C6;
+  --accent-soft-text: #A0D9D5;
+  --accent-soft: #203A3D;
+  --highlight: #D4B35A;
+  --highlight-strong: #E0C36F;
+  --highlight-text: #E5C96F;
+  --highlight-soft: #352F1D;
+  --success: #82C7A9;
+  --success-strong: #9AD9BA;
+  --success-text: #9AD9BA;
+  --success-soft: #1F3830;
+  --danger: #E08B83;
+  --danger-text: #F0A49C;
+  --danger-soft: #3A2527;
+  --secondary-accent: #B3A4CB;
+  --secondary-accent-strong: #C2B5D7;
+  --secondary-accent-text: #C2B5D7;
+  --secondary-accent-soft: #302A3A;
+  --glow-accent: color-mix(in srgb, var(--accent) 13%, transparent);
+  --glow-secondary: color-mix(in srgb, var(--secondary-accent) 9%, transparent);
+  --glow-success: color-mix(in srgb, var(--success) 7%, transparent);
+  --glow-highlight: color-mix(in srgb, var(--highlight) 70%, transparent);
+  --glow-on-accent: color-mix(in srgb, var(--text-on-accent) 80%, transparent);
+  --shadow-card: rgba(0, 0, 0, 0.38);
+  --shadow-card-hover: rgba(0, 0, 0, 0.52);
+  --shadow-inset: rgba(255, 255, 255, 0.06);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --badge-highlight-bg: color-mix(in srgb, var(--highlight) 15%, transparent);
+  --badge-highlight-border: color-mix(in srgb, var(--highlight) 48%, transparent);
+  --badge-success-bg: color-mix(in srgb, var(--success) 14%, transparent);
+  --badge-success-border: color-mix(in srgb, var(--success) 48%, transparent);
+  --badge-danger-bg: color-mix(in srgb, var(--danger) 14%, transparent);
+  --badge-danger-border: color-mix(in srgb, var(--danger) 48%, transparent);
+  --badge-accent-bg: color-mix(in srgb, var(--accent) 14%, transparent);
+  --badge-accent-border: color-mix(in srgb, var(--accent) 48%, transparent);
+  --scrollbar-thumb: #52616A;
+  --scrollbar-thumb-hover: #70818A;
+  --scrollbar-border: color-mix(in srgb, var(--text-primary) 8%, transparent);
+}
+
 @layer base {
-  :root {
-    --bg-primary: #060913;
-    --bg-secondary: #0c1322;
-    --bg-surface: #0f182e;
-    --border-subtle: rgba(148, 163, 184, 0.15);
-    --border-highlight: rgba(255, 255, 255, 0.08);
-    --text-primary: #ffffff;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
-    --accent-cyan: #00f0ff;
-    --accent-amber: #ffb703;
-    --accent-emerald: #00f59b;
-    --accent-purple: #c084fc;
-    --accent-rose: #ff3366;
+  html {
+    background: var(--page-background);
   }
 
   body {
     margin: 0;
     padding: 0;
-    background-color: #060913;
-    background-image: 
-      radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.05) 0%, transparent 40%),
-      radial-gradient(circle at 15% 70%, rgba(16, 185, 129, 0.04) 0%, transparent 40%);
-    color: #f8fafc;
+    background-color: var(--page-background);
+    background-image:
+      radial-gradient(circle at 50% 0%, var(--glow-accent) 0%, transparent 50%),
+      radial-gradient(circle at 85% 30%, var(--glow-secondary) 0%, transparent 40%),
+      radial-gradient(circle at 15% 70%, var(--glow-success) 0%, transparent 40%);
+    color: var(--text-primary);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', Helvetica, Arial, sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
@@ -41,28 +222,38 @@
   }
 }
 
-/* Bespoke Algovi Modern Card */
+*,
+*::before,
+*::after {
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease,
+    fill 200ms ease,
+    stroke 200ms ease,
+    box-shadow 200ms ease;
+}
+
 .algovi-card {
-  background: linear-gradient(180deg, #0d1527 0%, #090e1a 100%);
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: linear-gradient(180deg, var(--surface-card) 0%, var(--surface-raised) 100%);
+  border: 1px solid var(--border-subtle);
   border-radius: 0.875rem;
   padding: 1.25rem;
-  box-shadow: 
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
-    0 10px 25px -5px rgba(0, 0, 0, 0.5),
-    0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    inset 0 1px 0 0 var(--shadow-inset),
+    0 10px 25px -5px var(--shadow-card),
+    0 4px 6px -2px var(--shadow-card);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .algovi-card:hover {
-  border-color: rgba(56, 189, 248, 0.35);
-  box-shadow: 
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.12),
-    0 14px 32px -4px rgba(0, 0, 0, 0.65),
-    0 0 12px 0 rgba(6, 182, 212, 0.1);
+  border-color: var(--accent);
+  box-shadow:
+    inset 0 1px 0 0 var(--shadow-inset),
+    0 14px 32px -4px var(--shadow-card-hover),
+    0 0 12px 0 var(--glow-accent);
 }
 
-/* High-Contrast Badges */
 .algovi-badge {
   display: inline-flex;
   align-items: center;
@@ -76,46 +267,48 @@
 }
 
 .algovi-badge-compare {
-  background-color: rgba(255, 183, 3, 0.15);
-  color: #ffbe0b;
-  border: 1px solid rgba(255, 183, 3, 0.5);
-  box-shadow: 0 0 10px rgba(255, 183, 3, 0.15);
+  background-color: var(--badge-highlight-bg);
+  color: var(--highlight-text);
+  border: 1px solid var(--badge-highlight-border);
+  box-shadow: 0 0 10px var(--badge-highlight-bg);
 }
 
 .algovi-badge-swap {
-  background-color: rgba(255, 51, 102, 0.15);
-  color: #ff4d79;
-  border: 1px solid rgba(255, 51, 102, 0.5);
-  box-shadow: 0 0 10px rgba(255, 51, 102, 0.15);
+  background-color: var(--badge-danger-bg);
+  color: var(--danger-text);
+  border: 1px solid var(--badge-danger-border);
+  box-shadow: 0 0 10px var(--badge-danger-bg);
 }
 
 .algovi-badge-pass {
-  background-color: rgba(0, 240, 255, 0.15);
-  color: #38bdf8;
-  border: 1px solid rgba(0, 240, 255, 0.45);
-  box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
+  background-color: var(--badge-accent-bg);
+  color: var(--accent-text);
+  border: 1px solid var(--badge-accent-border);
+  box-shadow: 0 0 10px var(--badge-accent-bg);
 }
 
 .algovi-badge-complete {
-  background-color: rgba(0, 245, 155, 0.15);
-  color: #00f59b;
-  border: 1px solid rgba(0, 245, 155, 0.45);
-  box-shadow: 0 0 10px rgba(0, 245, 155, 0.15);
+  background-color: var(--badge-success-bg);
+  color: var(--success-text);
+  border: 1px solid var(--badge-success-border);
+  box-shadow: 0 0 10px var(--badge-success-bg);
 }
 
-/* Custom Scrollbars with high-contrast styling */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #060913;
+  background: var(--page-background);
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--scrollbar-thumb);
+  border: 1px solid var(--scrollbar-border);
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: var(--scrollbar-thumb-hover);
 }

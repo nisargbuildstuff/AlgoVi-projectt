@@ -174,7 +174,7 @@ export const InitialPermutationView: React.FC<InitialPermutationViewProps> = ({
                   onClick={() => setSelectedBitIndex(isSelected ? null : permutedIdx)}
                   className={`p-1.5 rounded-lg border text-center transition ${
                     isSelected
-                      ? 'bg-amber-500 text-slate-950 font-bold scale-105 shadow-md shadow-amber-500/30'
+                      ? 'bg-amber-500 text-[var(--text-on-highlight)] font-bold scale-105 shadow-md shadow-amber-500/30'
                       : isLeftHalf
                       ? 'bg-sky-950/40 border-sky-800/60 text-sky-200 hover:border-sky-400'
                       : 'bg-emerald-950/40 border-emerald-800/60 text-emerald-200 hover:border-emerald-400'

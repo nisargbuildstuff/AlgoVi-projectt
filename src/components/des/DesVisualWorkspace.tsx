@@ -78,7 +78,7 @@ export const DesVisualWorkspace: React.FC<DesVisualWorkspaceProps> = ({
             onClick={() => setViewMode('visual')}
             className={`px-2.5 py-1 rounded text-xs flex items-center gap-1.5 transition ${
               viewMode === 'visual'
-                ? 'bg-purple-600 text-white font-semibold shadow'
+                ? 'bg-purple-600 text-[var(--text-on-accent)] font-semibold shadow'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
@@ -90,7 +90,7 @@ export const DesVisualWorkspace: React.FC<DesVisualWorkspaceProps> = ({
             onClick={() => setViewMode('bits')}
             className={`px-2.5 py-1 rounded text-xs flex items-center gap-1.5 transition ${
               viewMode === 'bits'
-                ? 'bg-purple-600 text-white font-semibold shadow'
+                ? 'bg-purple-600 text-[var(--text-on-accent)] font-semibold shadow'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
@@ -216,7 +216,7 @@ export const DesVisualWorkspace: React.FC<DesVisualWorkspaceProps> = ({
                         onClick={() => onSelectRound(r)}
                         className={`py-1.5 rounded-lg border text-xs font-mono transition-all ${
                           isSelected
-                            ? 'bg-purple-600 text-white font-bold border-purple-400 shadow-md shadow-purple-600/30 ring-1 ring-purple-400'
+                            ? 'bg-purple-600 text-[var(--text-on-accent)] font-bold border-purple-400 shadow-md shadow-purple-600/30 ring-1 ring-purple-400'
                             : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800'
                         }`}
                       >

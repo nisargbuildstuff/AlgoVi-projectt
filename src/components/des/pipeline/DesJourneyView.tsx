@@ -148,8 +148,8 @@ export const DesJourneyView: React.FC<DesJourneyViewProps> = ({
               {/* Arrow connector */}
               <div className="flex-shrink-0 flex items-center px-1">
                 <svg width="24" height="16" viewBox="0 0 24 16" className="overflow-visible">
-                  <line x1="0" y1="8" x2="20" y2="8" stroke={isActive ? '#a78bfa' : isDone ? '#34d399' : '#475569'} strokeWidth="1.5" />
-                  <polygon points="20,4 24,8 20,12" fill={isActive ? '#a78bfa' : isDone ? '#34d399' : '#475569'} />
+                  <line x1="0" y1="8" x2="20" y2="8" stroke={isActive ? 'var(--secondary-accent)' : isDone ? 'var(--success)' : 'var(--text-muted)'} strokeWidth="1.5" />
+                  <polygon points="20,4 24,8 20,12" fill={isActive ? 'var(--secondary-accent)' : isDone ? 'var(--success)' : 'var(--text-muted)'} />
                 </svg>
               </div>
 
@@ -168,7 +168,7 @@ export const DesJourneyView: React.FC<DesJourneyViewProps> = ({
                 {/* Done badge */}
                 {isDone && !isActive && (
                   <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
-                    <CheckCircle2 className="w-2.5 h-2.5 text-white" />
+                    <CheckCircle2 className="w-2.5 h-2.5 text-[var(--text-on-accent)]" />
                   </span>
                 )}
 
@@ -195,8 +195,8 @@ export const DesJourneyView: React.FC<DesJourneyViewProps> = ({
         {/* Final arrow + Ciphertext */}
         <div className="flex-shrink-0 flex items-center px-1">
           <svg width="24" height="16" viewBox="0 0 24 16" className="overflow-visible">
-            <line x1="0" y1="8" x2="20" y2="8" stroke={ciphertextHex ? '#34d399' : '#475569'} strokeWidth="1.5" />
-            <polygon points="20,4 24,8 20,12" fill={ciphertextHex ? '#34d399' : '#475569'} />
+            <line x1="0" y1="8" x2="20" y2="8" stroke={ciphertextHex ? 'var(--success)' : 'var(--text-muted)'} strokeWidth="1.5" />
+            <polygon points="20,4 24,8 20,12" fill={ciphertextHex ? 'var(--success)' : 'var(--text-muted)'} />
           </svg>
         </div>
         <div className="flex-shrink-0 flex flex-col items-center">

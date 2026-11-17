@@ -101,7 +101,7 @@ export const DesPipelineNav: React.FC<DesPipelineNavProps> = ({
                 <span
                   className={`w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold ${
                     isCurrent
-                      ? 'bg-purple-500 text-white'
+                      ? 'bg-purple-500 text-[var(--text-on-accent)]'
                       : isCompleted
                       ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40'
                       : 'bg-slate-800 text-slate-400'

@@ -29,7 +29,7 @@ export const DesKeyGenerationAndFeatures: React.FC<DesKeyGenerationAndFeaturesPr
   return (
     <div className="space-y-4">
       {/* Key Generation Section (from Image 1: Input key 64b, Effective key 56b, 8 parity stripped, 16 48b subkeys) */}
-      <div className="algovi-card bg-[#0b1120] border border-slate-800/80 p-5 space-y-4 shadow-xl">
+      <div className="algovi-card bg-[var(--surface-card)] border border-slate-800/80 p-5 space-y-4 shadow-xl">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 border border-amber-500/40 flex items-center justify-center shadow-md">

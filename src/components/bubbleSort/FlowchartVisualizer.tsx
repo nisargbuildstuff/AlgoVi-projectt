@@ -67,7 +67,7 @@ export const FlowchartVisualizer: React.FC<FlowchartVisualizerProps> = ({ stageI
               markerHeight="6"
               orient="auto-start-reverse"
             >
-              <path d="M 0 1 L 8 5 L 0 9 z" fill="#64748b" />
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="var(--text-muted)" />
             </marker>
             <marker
               id="arrow-active"
@@ -78,7 +78,7 @@ export const FlowchartVisualizer: React.FC<FlowchartVisualizerProps> = ({ stageI
               markerHeight="6"
               orient="auto-start-reverse"
             >
-              <path d="M 0 1 L 8 5 L 0 9 z" fill="#f59e0b" />
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="var(--highlight)" />
             </marker>
             <marker
               id="arrow-yes"
@@ -89,7 +89,7 @@ export const FlowchartVisualizer: React.FC<FlowchartVisualizerProps> = ({ stageI
               markerHeight="6"
               orient="auto-start-reverse"
             >
-              <path d="M 0 1 L 8 5 L 0 9 z" fill="#10b981" />
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="var(--success)" />
             </marker>
             <marker
               id="arrow-no"
@@ -100,45 +100,45 @@ export const FlowchartVisualizer: React.FC<FlowchartVisualizerProps> = ({ stageI
               markerHeight="6"
               orient="auto-start-reverse"
             >
-              <path d="M 0 1 L 8 5 L 0 9 z" fill="#ef4444" />
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="var(--danger)" />
             </marker>
           </defs>
 
           {/* Connection Arrows */}
           {/* Start -> init_outer */}
-          <line x1="140" y1="51" x2="140" y2="68" stroke="#64748b" strokeWidth="2" markerEnd="url(#arrow)" />
+          <line x1="140" y1="51" x2="140" y2="68" stroke="var(--text-muted)" strokeWidth="2" markerEnd="url(#arrow)" />
           {/* init_outer -> check_outer */}
-          <line x1="140" y1="102" x2="140" y2="131" stroke="#64748b" strokeWidth="2" markerEnd="url(#arrow)" />
+          <line x1="140" y1="102" x2="140" y2="131" stroke="var(--text-muted)" strokeWidth="2" markerEnd="url(#arrow)" />
           {/* check_outer -> init_inner (Yes: outer continues) */}
-          <line x1="140" y1="179" x2="140" y2="218" stroke="#64748b" strokeWidth="2" markerEnd="url(#arrow)" />
+          <line x1="140" y1="179" x2="140" y2="218" stroke="var(--text-muted)" strokeWidth="2" markerEnd="url(#arrow)" />
           {/* check_outer -> all_sorted (No: done) */}
-          <line x1="200" y1="155" x2="207" y2="155" stroke="#64748b" strokeWidth="2" markerEnd="url(#arrow)" />
+          <line x1="200" y1="155" x2="207" y2="155" stroke="var(--text-muted)" strokeWidth="2" markerEnd="url(#arrow)" />
           {/* all_sorted -> end */}
-          <line x1="260" y1="137" x2="260" y2="91" stroke="#64748b" strokeWidth="2" markerEnd="url(#arrow)" />
+          <line x1="260" y1="137" x2="260" y2="91" stroke="var(--text-muted)" strokeWidth="2" markerEnd="url(#arrow)" />
 
           {/* init_inner -> check_inner */}
-          <line x1="140" y1="252" x2="140" y2="281" stroke="#64748b" strokeWidth="2" markerEnd="url(#arrow)" />
+          <line x1="140" y1="252" x2="140" y2="281" stroke="var(--text-muted)" strokeWidth="2" markerEnd="url(#arrow)" />
           {/* check_inner -> compare_elements (Yes) */}
-          <line x1="140" y1="329" x2="140" y2="367" stroke="#64748b" strokeWidth="2" markerEnd="url(#arrow)" />
+          <line x1="140" y1="329" x2="140" y2="367" stroke="var(--text-muted)" strokeWidth="2" markerEnd="url(#arrow)" />
           {/* check_inner -> pass_done (No: pass complete) */}
-          <line x1="205" y1="305" x2="205" y2="305" stroke="#64748b" strokeWidth="2" markerEnd="url(#arrow)" />
-          <line x1="205" y1="305" x2="205" y2="305" stroke="#64748b" strokeWidth="2" markerEnd="url(#arrow)" />
+          <line x1="205" y1="305" x2="205" y2="305" stroke="var(--text-muted)" strokeWidth="2" markerEnd="url(#arrow)" />
+          <line x1="205" y1="305" x2="205" y2="305" stroke="var(--text-muted)" strokeWidth="2" markerEnd="url(#arrow)" />
 
           {/* pass_done -> check_outer loop back */}
-          <path d="M 260 284 L 260 215 L 180 165" fill="none" stroke="#64748b" strokeWidth="1.5" strokeDasharray="3 3" markerEnd="url(#arrow)" />
+          <path d="M 260 284 L 260 215 L 180 165" fill="none" stroke="var(--text-muted)" strokeWidth="1.5" strokeDasharray="3 3" markerEnd="url(#arrow)" />
 
           {/* compare_elements -> decision_swap */}
-          <line x1="140" y1="403" x2="140" y2="439" stroke="#64748b" strokeWidth="2" markerEnd="url(#arrow)" />
+          <line x1="140" y1="403" x2="140" y2="439" stroke="var(--text-muted)" strokeWidth="2" markerEnd="url(#arrow)" />
 
           {/* decision_swap -> do_swap (Yes branch) */}
           <path
             d="M 68 465 L 50 465 L 50 538"
             fill="none"
-            stroke={decision_branch === 'yes' ? '#10b981' : '#64748b'}
+            stroke={decision_branch === 'yes' ? 'var(--success)' : 'var(--text-muted)'}
             strokeWidth={decision_branch === 'yes' ? '2.5' : '1.5'}
             markerEnd={decision_branch === 'yes' ? 'url(#arrow-yes)' : 'url(#arrow)'}
           />
-          <text x="32" y="495" fill={decision_branch === 'yes' ? '#10b981' : '#94a3b8'} fontSize="9" fontWeight="bold">
+          <text x="32" y="495" fill={decision_branch === 'yes' ? 'var(--success)' : 'var(--text-muted)'} fontSize="9" fontWeight="bold">
             YES
           </text>
 
@@ -146,19 +146,19 @@ export const FlowchartVisualizer: React.FC<FlowchartVisualizerProps> = ({ stageI
           <path
             d="M 212 465 L 225 465 L 225 615 L 190 635"
             fill="none"
-            stroke={decision_branch === 'no' ? '#ef4444' : '#64748b'}
+            stroke={decision_branch === 'no' ? 'var(--danger)' : 'var(--text-muted)'}
             strokeWidth={decision_branch === 'no' ? '2.5' : '1.5'}
             markerEnd={decision_branch === 'no' ? 'url(#arrow-no)' : 'url(#arrow)'}
           />
-          <text x="215" y="495" fill={decision_branch === 'no' ? '#ef4444' : '#94a3b8'} fontSize="9" fontWeight="bold">
+          <text x="215" y="495" fill={decision_branch === 'no' ? 'var(--danger)' : 'var(--text-muted)'} fontSize="9" fontWeight="bold">
             NO
           </text>
 
           {/* do_swap -> advance_inner */}
-          <path d="M 50 572 L 50 635 L 90 635" fill="none" stroke="#64748b" strokeWidth="1.5" markerEnd="url(#arrow)" />
+          <path d="M 50 572 L 50 635 L 90 635" fill="none" stroke="var(--text-muted)" strokeWidth="1.5" markerEnd="url(#arrow)" />
 
           {/* advance_inner -> check_inner loop back */}
-          <path d="M 140 642 L 140 665 L 15 665 L 15 305 L 75 305" fill="none" stroke="#64748b" strokeWidth="1.5" strokeDasharray="3 3" markerEnd="url(#arrow)" />
+          <path d="M 140 642 L 140 665 L 15 665 L 15 305 L 75 305" fill="none" stroke="var(--text-muted)" strokeWidth="1.5" strokeDasharray="3 3" markerEnd="url(#arrow)" />
 
           {/* Flowchart Nodes Rendering */}
           {nodes.map((node) => {
@@ -166,11 +166,11 @@ export const FlowchartVisualizer: React.FC<FlowchartVisualizerProps> = ({ stageI
             const isTarget = node.id === stage_id;
 
             // Colors specified in Section 5.1:
-            // Active nodes: gold fill (#FFD54F), bold amber borders (#FFA000), dark text
-            const fill = active ? '#FFD54F' : '#1e293b';
-            const stroke = active ? '#FFA000' : '#475569';
+            // Active nodes: gold fill (var(--highlight)), bold amber borders (var(--highlight-strong)), dark text
+            const fill = active ? 'var(--highlight)' : 'var(--surface-inset)';
+            const stroke = active ? 'var(--highlight-strong)' : 'var(--text-muted)';
             const strokeWidth = active ? (isTarget ? 3 : 2) : 1.5;
-            const textColor = active ? '#0f172a' : '#f1f5f9';
+            const textColor = active ? 'var(--surface-inset)' : 'var(--text-primary)';
 
             return (
               <g
@@ -187,7 +187,7 @@ export const FlowchartVisualizer: React.FC<FlowchartVisualizerProps> = ({ stageI
                     fill={fill}
                     stroke={stroke}
                     strokeWidth={strokeWidth}
-                    className={active ? 'filter drop-shadow-[0_0_8px_rgba(255,213,79,0.7)]' : ''}
+                    className={active ? 'filter drop-shadow-[0_0_8px_var(--glow-highlight)]' : ''}
                   />
                 )}
 
@@ -201,7 +201,7 @@ export const FlowchartVisualizer: React.FC<FlowchartVisualizerProps> = ({ stageI
                     fill={fill}
                     stroke={stroke}
                     strokeWidth={strokeWidth}
-                    className={active ? 'filter drop-shadow-[0_0_8px_rgba(255,213,79,0.7)]' : ''}
+                    className={active ? 'filter drop-shadow-[0_0_8px_var(--glow-highlight)]' : ''}
                   />
                 )}
 
@@ -216,7 +216,7 @@ export const FlowchartVisualizer: React.FC<FlowchartVisualizerProps> = ({ stageI
                     fill={fill}
                     stroke={stroke}
                     strokeWidth={strokeWidth}
-                    className={active ? 'filter drop-shadow-[0_0_8px_rgba(255,213,79,0.7)]' : ''}
+                    className={active ? 'filter drop-shadow-[0_0_8px_var(--glow-highlight)]' : ''}
                   />
                 )}
 

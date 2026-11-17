@@ -18,22 +18,22 @@ export const ArrayBarChart: React.FC<ArrayBarChartProps> = ({ step, initialArray
   const getBarColor = (index: number) => {
     // If fully sorted action
     if (action === 'sorted' || (indices.includes(index) && action === 'sorted')) {
-      return '#43A047'; // Emerald
+      return 'var(--success)'; // Emerald
     }
     // If elements are being compared
     if (action === 'compare' && indices.includes(index)) {
-      return '#FFB300'; // Amber
+      return 'var(--highlight)'; // Amber
     }
     // If elements are swapping
     if (action === 'swap' && indices.includes(index)) {
-      return '#E53935'; // Crimson
+      return 'var(--danger)'; // Crimson
     }
     // If pass complete locked elements
     if (action === 'pass_complete' && indices.includes(index)) {
-      return '#43A047'; // Emerald
+      return 'var(--success)'; // Emerald
     }
     // Default
-    return '#1E88E5'; // Primary Blue
+    return 'var(--accent)'; // Primary Blue
   };
 
   return (
@@ -55,7 +55,7 @@ export const ArrayBarChart: React.FC<ArrayBarChartProps> = ({ step, initialArray
               <span
                 className={`text-xs font-mono font-bold transition-all duration-300 select-none ${
                   isExamined
-                    ? 'text-white scale-125 filter drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]'
+                    ? 'text-white scale-125 filter drop-shadow-[0_0_8px_var(--glow-on-accent)]'
                     : 'text-slate-300'
                 }`}
               >
@@ -73,7 +73,7 @@ export const ArrayBarChart: React.FC<ArrayBarChartProps> = ({ step, initialArray
                   height: `${barHeightPx}px`,
                   minHeight: '28px',
                   backgroundColor: color,
-                  boxShadow: isExamined ? `0 0 20px ${color}` : `0 4px 8px rgba(0,0,0,0.3)`
+                  boxShadow: isExamined ? `0 0 20px ${color}` : `0 4px 8px var(--shadow-color)`
                 }}
               />
 
@@ -106,16 +106,16 @@ export const ArrayBarChart: React.FC<ArrayBarChartProps> = ({ step, initialArray
         <span>Index 0</span>
         <div className="flex items-center gap-4">
           <span className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-sm bg-[#1E88E5]" /> Default
+            <span className="w-2.5 h-2.5 rounded-sm bg-[var(--accent)]" /> Default
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-sm bg-[#FFB300]" /> Compare
+            <span className="w-2.5 h-2.5 rounded-sm bg-[var(--highlight)]" /> Compare
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-sm bg-[#E53935]" /> Swap
+            <span className="w-2.5 h-2.5 rounded-sm bg-[var(--danger)]" /> Swap
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-sm bg-[#43A047]" /> Sorted
+            <span className="w-2.5 h-2.5 rounded-sm bg-[var(--success)]" /> Sorted
           </span>
         </div>
         <span>Index {state.length - 1}</span>

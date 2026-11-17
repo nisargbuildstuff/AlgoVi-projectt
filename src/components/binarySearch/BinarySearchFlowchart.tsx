@@ -24,7 +24,7 @@ export const BinarySearchFlowchart: React.FC<BinarySearchFlowchartProps> = ({ st
   const boundsCondition = low <= high;
 
   return (
-    <div className="algovi-card bg-[#0b1120] border border-slate-800/80 p-4 flex flex-col h-full space-y-3 shadow-xl">
+    <div className="algovi-card bg-[var(--surface-card)] border border-slate-800/80 p-4 flex flex-col h-full space-y-3 shadow-xl">
       {/* Header */}
       <div className="flex items-center justify-between pb-3 border-b border-slate-800">
         <div>

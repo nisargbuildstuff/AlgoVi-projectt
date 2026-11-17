@@ -80,7 +80,7 @@ export const RoundDeepInspector: React.FC<RoundDeepInspectorProps> = ({
               onClick={() => onSelectRound(r)}
               className={`px-2.5 py-1 text-xs font-mono rounded-lg transition ${
                 selectedRound === r
-                  ? 'bg-purple-600 text-white font-bold ring-2 ring-purple-400/50 shadow'
+                  ? 'bg-purple-600 text-[var(--text-on-accent)] font-bold ring-2 ring-purple-400/50 shadow'
                   : 'bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700'
               }`}
             >

@@ -118,7 +118,7 @@ export const BubbleSortWorkspace: React.FC = () => {
             />
             <button
               type="submit"
-              className="px-4 py-2 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold flex items-center gap-1.5 shadow-md shadow-sky-600/20 active:scale-95 transition"
+              className="px-4 py-2 rounded-lg bg-sky-600 hover:bg-sky-500 text-[var(--text-on-accent)] text-xs font-bold flex items-center gap-1.5 shadow-md shadow-sky-600/20 active:scale-95 transition"
             >
               <RefreshCw className="w-3.5 h-3.5" />
               <span>Generate</span>
@@ -198,7 +198,7 @@ export const BubbleSortWorkspace: React.FC = () => {
                   onClick={() => setViewMode('bars')}
                   className={`p-1.5 rounded text-xs flex items-center gap-1.5 transition ${
                     viewMode === 'bars'
-                      ? 'bg-sky-600 text-white font-semibold'
+                      ? 'bg-sky-600 text-[var(--text-on-accent)] font-semibold'
                       : 'text-slate-400 hover:text-white'
                   }`}
                   title="Plotly Bar Chart View"
@@ -210,7 +210,7 @@ export const BubbleSortWorkspace: React.FC = () => {
                   onClick={() => setViewMode('cards')}
                   className={`p-1.5 rounded text-xs flex items-center gap-1.5 transition ${
                     viewMode === 'cards'
-                      ? 'bg-sky-600 text-white font-semibold'
+                      ? 'bg-sky-600 text-[var(--text-on-accent)] font-semibold'
                       : 'text-slate-400 hover:text-white'
                   }`}
                   title="Value Card Pills View"

@@ -42,7 +42,7 @@ export const SBoxGridInspector: React.FC<SBoxGridInspectorProps> = ({
                 onClick={() => onSelectBox(sb.box_index)}
                 className={`p-2.5 rounded-xl border text-center transition-all ${
                   isSelected
-                    ? 'bg-purple-600 text-white font-bold border-purple-400 shadow-md shadow-purple-600/30 ring-2 ring-purple-400'
+                    ? 'bg-purple-600 text-[var(--text-on-accent)] font-bold border-purple-400 shadow-md shadow-purple-600/30 ring-2 ring-purple-400'
                     : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800'
                 }`}
               >
@@ -161,7 +161,7 @@ export const SBoxGridInspector: React.FC<SBoxGridInspectorProps> = ({
                           key={cIdx}
                           className={`p-1.5 rounded transition ${
                             isTargetCell
-                              ? 'bg-emerald-500 text-slate-950 font-extrabold scale-110 shadow-lg shadow-emerald-500/40 ring-2 ring-emerald-300'
+                              ? 'bg-emerald-500 text-[var(--text-on-accent)] font-extrabold scale-110 shadow-lg shadow-emerald-500/40 ring-2 ring-emerald-300'
                               : isTargetRow
                               ? 'text-amber-200'
                               : cIdx === col

@@ -20,9 +20,9 @@ export const SearchArrayVisualizer: React.FC<SearchArrayVisualizerProps> = ({ st
 
           // Pointer labels for this index
           const pointers: { label: string; color: string }[] = [];
-          if (isLow) pointers.push({ label: 'LOW', color: 'bg-blue-500 text-white' });
-          if (isMid) pointers.push({ label: 'MID', color: 'bg-purple-500 text-white' });
-          if (isHigh) pointers.push({ label: 'HIGH', color: 'bg-rose-500 text-white' });
+          if (isLow) pointers.push({ label: 'LOW', color: 'bg-blue-500 text-[var(--text-on-accent)]' });
+          if (isMid) pointers.push({ label: 'MID', color: 'bg-purple-500 text-[var(--text-on-accent)]' });
+          if (isHigh) pointers.push({ label: 'HIGH', color: 'bg-rose-500 text-[var(--text-on-accent)]' });
 
           return (
             <div key={idx} className="flex flex-col items-center gap-2 group">

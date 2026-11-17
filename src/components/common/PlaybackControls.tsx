@@ -63,7 +63,7 @@ export const PlaybackControls: React.FC<PlaybackControlsProps> = ({
   const progressPercent = totalSteps > 1 ? (currentStep / maxStep) * 100 : 0;
 
   return (
-    <div className="algovi-card bg-[#0b1120] border border-slate-800/80 p-4 space-y-4 shadow-xl">
+    <div className="algovi-card bg-[var(--surface-card)] border border-slate-800/80 p-4 space-y-4 shadow-xl">
       {/* Top row: controls, step counter, speed */}
       <div className="flex flex-wrap items-center justify-between gap-4">
         {/* Playback Action Buttons */}
@@ -96,8 +96,8 @@ export const PlaybackControls: React.FC<PlaybackControlsProps> = ({
             title={isPlaying ? 'Pause (Space)' : 'Play Animation (Space)'}
             className={`px-5 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition-all active:scale-95 shadow-md ${
               isPlaying
-                ? 'bg-amber-400 hover:bg-amber-300 text-slate-950 shadow-amber-400/30'
-                : 'bg-cyan-500 hover:bg-cyan-400 text-slate-950 shadow-cyan-500/30'
+                ? 'bg-amber-400 hover:bg-amber-300 text-[var(--text-on-highlight)] shadow-amber-400/30'
+                : 'bg-cyan-500 hover:bg-cyan-400 text-[var(--text-on-accent)] shadow-cyan-500/30'
             }`}
           >
             {isPlaying ? (

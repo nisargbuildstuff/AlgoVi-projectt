@@ -141,7 +141,7 @@ export const BinarySearchWorkspace: React.FC = () => {
             <div className="sm:col-span-2">
               <button
                 type="submit"
-                className="w-full h-full py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/20 active:scale-95 transition"
+                className="w-full h-full py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-[var(--text-on-accent)] text-xs font-bold flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/20 active:scale-95 transition"
               >
                 <Search className="w-3.5 h-3.5" />
                 <span>Search</span>
@@ -210,7 +210,7 @@ export const BinarySearchWorkspace: React.FC = () => {
           <PointerCards step={currentStep} />
 
           {/* Array Search Visualizer Card */}
-          <div className="algovi-card bg-[#0b1120] border border-slate-800/80 p-5 space-y-4 shadow-xl">
+          <div className="algovi-card bg-[var(--surface-card)] border border-slate-800/80 p-5 space-y-4 shadow-xl">
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
               <div>
                 <h3 className="font-bold text-sm text-slate-100">Search Space Visualization</h3>

@@ -42,7 +42,7 @@ export const FinalPermutationView: React.FC<FinalPermutationViewProps> = ({
         <button
           type="button"
           onClick={handleCelebrate}
-          className="px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1.5 shadow-lg shadow-emerald-600/25 active:scale-95 transition"
+          className="px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-[var(--text-on-accent)] font-bold text-xs flex items-center gap-1.5 shadow-lg shadow-emerald-600/25 active:scale-95 transition"
         >
           <CheckCircle2 className="w-4 h-4" />
           <span>Celebrate!</span>

@@ -167,7 +167,7 @@ export const DesInputSection: React.FC<DesInputSectionProps> = ({
               onClick={() => setInputMode('hex')}
               className={`px-2.5 py-1 rounded transition flex items-center gap-1 ${
                 inputMode === 'hex'
-                  ? 'bg-purple-600 text-white font-semibold'
+                  ? 'bg-purple-600 text-[var(--text-on-accent)] font-semibold'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
@@ -179,7 +179,7 @@ export const DesInputSection: React.FC<DesInputSectionProps> = ({
               onClick={() => setInputMode('ascii')}
               className={`px-2.5 py-1 rounded transition flex items-center gap-1 ${
                 inputMode === 'ascii'
-                  ? 'bg-purple-600 text-white font-semibold'
+                  ? 'bg-purple-600 text-[var(--text-on-accent)] font-semibold'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
@@ -260,7 +260,7 @@ export const DesInputSection: React.FC<DesInputSectionProps> = ({
 
               <button
                 type="submit"
-                className="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold flex items-center gap-1.5 shadow-md shadow-purple-600/20 active:scale-95 transition"
+                className="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-[var(--text-on-accent)] text-xs font-bold flex items-center gap-1.5 shadow-md shadow-purple-600/20 active:scale-95 transition"
               >
                 <RefreshCw className="w-3.5 h-3.5" />
                 <span>Encrypt & Generate</span>
@@ -330,7 +330,7 @@ export const DesInputSection: React.FC<DesInputSectionProps> = ({
 
               <button
                 type="submit"
-                className="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold flex items-center gap-1.5 shadow-md shadow-purple-600/20 active:scale-95 transition"
+                className="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-[var(--text-on-accent)] text-xs font-bold flex items-center gap-1.5 shadow-md shadow-purple-600/20 active:scale-95 transition"
               >
                 <RefreshCw className="w-3.5 h-3.5" />
                 <span>Convert & Encrypt</span>
