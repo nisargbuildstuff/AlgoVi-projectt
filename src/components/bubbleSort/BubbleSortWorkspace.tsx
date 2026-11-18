@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { bubble_sort_steps } from '../../algorithms/sorting/bubbleSort';
 import { mapBubbleSortStepToFlowchart } from '../../explanations/bubbleSort';
 import { PlaybackControls } from '../common/PlaybackControls';
@@ -72,6 +72,17 @@ export const BubbleSortWorkspace: React.FC = () => {
   }, [isPlaying, currentStepIndex, steps.length, speedMs]);
 
   const currentStep = steps[currentStepIndex] || steps[0];
+  const itemIds = useMemo(() => {
+    const ids = currentArray.map((_, index) => index);
+    for (let index = 1; index <= currentStepIndex; index += 1) {
+      const step = steps[index];
+      if (step.action === 'swap') {
+        const [left, right] = step.indices;
+        [ids[left], ids[right]] = [ids[right], ids[left]];
+      }
+    }
+    return ids;
+  }, [currentArray, currentStepIndex, steps]);
   const stageInfo = mapBubbleSortStepToFlowchart(currentStep, steps.length, currentArray.length);
 
   return (
@@ -223,7 +234,7 @@ export const BubbleSortWorkspace: React.FC = () => {
 
             {/* Canvas */}
             {viewMode === 'bars' ? (
-              <ArrayBarChart step={currentStep} initialArray={currentArray} />
+              <ArrayBarChart step={currentStep} initialArray={currentArray} itemIds={itemIds} />
             ) : (
               <ArrayCardView step={currentStep} />
             )}

@@ -4,6 +4,7 @@
  * structured with the synchronized Execution Flowchart and visual workspace matching Bubble Sort.
  */
 import React, { useState, useEffect, useRef } from 'react';
+import confetti from 'canvas-confetti';
 import {
   des_encrypt,
   extract_des_rounds,
@@ -35,6 +36,7 @@ export const DesWorkspace: React.FC = () => {
   const [speedMs, setSpeedMs] = useState<number>(650);
 
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const hasCelebratedRef = useRef(false);
 
   const rounds = extract_des_rounds(result.steps);
   const roundSummaries = extract_round_summary_table(result.steps);
@@ -53,6 +55,7 @@ export const DesWorkspace: React.FC = () => {
   const handleEncrypt = (pt: string, k: string) => {
     try {
       const newResult = des_encrypt(pt, k);
+      hasCelebratedRef.current = false;
       setPlaintext(pt);
       setCipherKey(k);
       setResult(newResult);
@@ -72,6 +75,13 @@ export const DesWorkspace: React.FC = () => {
       setSelectedRound(currentStep.round_number);
     }
   }, [currentStepIndex, currentStep]);
+
+  useEffect(() => {
+    if (isAtEnd && !hasCelebratedRef.current) {
+      hasCelebratedRef.current = true;
+      confetti({ particleCount: 90, spread: 70, origin: { y: 0.6 } });
+    }
+  }, [isAtEnd]);
 
   // Jump to specific round
   const handleSelectRound = (roundNum: number) => {
@@ -122,11 +132,15 @@ export const DesWorkspace: React.FC = () => {
         onPrev={() => setCurrentStepIndex((p) => Math.max(0, p - 1))}
         onReset={() => {
           setIsPlaying(false);
+          hasCelebratedRef.current = false;
           setCurrentStepIndex(0);
           setSelectedRound(1);
         }}
         onSeek={(step) => {
           setIsPlaying(false);
+          if (step < result.steps.length - 1) {
+            hasCelebratedRef.current = false;
+          }
           setCurrentStepIndex(step);
         }}
         speedMs={speedMs}

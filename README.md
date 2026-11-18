@@ -1,6 +1,6 @@
-# AlgoVista — Interactive Algorithm Visualization Platform
+# AlgoVi — Interactive Algorithm Visualization Platform
 
-**AlgoVista** is an interactive, web-based algorithm visualization platform built using **React 19**, **TypeScript**, **Vite**, **Tailwind CSS v4**, and **Vitest**.
+**AlgoVi** is an interactive, web-based algorithm visualization platform built using **React 19**, **TypeScript**, **Vite**, **Tailwind CSS v4**, and **Vitest**.
 
 Rebuilt from the ground up from the original Streamlit/Python technical blueprint into a 60fps client-side architecture with zero backend latency, synchronized state machines, animated flowcharts, and NIST FIPS 46-3 cryptographic verification.
 

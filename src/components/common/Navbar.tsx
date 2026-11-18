@@ -15,7 +15,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onTabChange }) => {
 
   const toggleTheme = () => {
     const nextTheme = theme === 'dark' ? 'light' : 'dark';
-    window.localStorage.setItem('algovista-theme', nextTheme);
+    window.localStorage.setItem('algovi-theme', nextTheme);
     document.documentElement.dataset.theme = nextTheme;
     setTheme(nextTheme);
   };
@@ -31,7 +31,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onTabChange }) => {
           <div>
             <div className="flex items-center gap-2">
               <span className="font-extrabold text-xl tracking-tight text-[var(--text-primary)] flex items-center gap-1">
-                Algo<span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-400">Vista</span>
+                Algo<span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-400">Vi</span>
               </span>
               <span className="text-[10px] font-mono font-bold tracking-widest px-2 py-0.5 rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
                 PRO ENGINE

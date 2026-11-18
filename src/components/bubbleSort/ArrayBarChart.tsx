@@ -1,18 +1,70 @@
-import React from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { ExecutionStep } from '../../types/steps';
 
 interface ArrayBarChartProps {
   step: ExecutionStep;
   initialArray: number[];
+  itemIds: number[];
 }
 
-export const ArrayBarChart: React.FC<ArrayBarChartProps> = ({ step, initialArray }) => {
+export const ArrayBarChart: React.FC<ArrayBarChartProps> = ({ step, initialArray, itemIds }) => {
   const { state, action, indices } = step;
+  const itemRefs = useRef(new Map<number, HTMLDivElement>());
+  const previousPositions = useRef(new Map<number, DOMRect>());
+  const animationFrame = useRef<number | null>(null);
   const maxVal = Math.max(...initialArray, ...state, 10);
   const minVal = Math.min(...initialArray, ...state, 0);
   const range = maxVal - minVal || 1;
 
   const MAX_BAR_HEIGHT_PX = 190; // Fixed canvas height in pixels
+
+  useLayoutEffect(() => {
+    if (animationFrame.current !== null) {
+      cancelAnimationFrame(animationFrame.current);
+    }
+
+    const nextPositions = new Map<number, DOMRect>();
+    const movingItems: HTMLDivElement[] = [];
+
+    itemIds.forEach((id) => {
+      const element = itemRefs.current.get(id);
+      if (!element) return;
+
+      const nextPosition = element.getBoundingClientRect();
+      const previousPosition = previousPositions.current.get(id);
+      nextPositions.set(id, nextPosition);
+
+      if (previousPosition) {
+        const deltaX = previousPosition.left - nextPosition.left;
+        const deltaY = previousPosition.top - nextPosition.top;
+        if (deltaX !== 0 || deltaY !== 0) {
+          element.style.transition = 'none';
+          element.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+          movingItems.push(element);
+        }
+      }
+    });
+
+    previousPositions.current = nextPositions;
+
+    if (movingItems.length > 0) {
+      movingItems[0].getBoundingClientRect();
+      animationFrame.current = requestAnimationFrame(() => {
+        movingItems.forEach((element) => {
+          element.style.transition = 'transform 360ms cubic-bezier(0.2, 0.8, 0.2, 1)';
+          element.style.transform = 'translate(0, 0)';
+        });
+        animationFrame.current = null;
+      });
+    }
+
+    return () => {
+      if (animationFrame.current !== null) {
+        cancelAnimationFrame(animationFrame.current);
+        animationFrame.current = null;
+      }
+    };
+  }, [itemIds]);
 
   // Determine bar color for element at index i
   const getBarColor = (index: number) => {
@@ -41,6 +93,7 @@ export const ArrayBarChart: React.FC<ArrayBarChartProps> = ({ step, initialArray
       {/* Chart Canvas Area */}
       <div className="w-full h-72 flex items-end justify-center gap-3 px-4 pb-2 border-b-2 border-slate-700/80">
         {state.map((val, idx) => {
+          const itemId = itemIds[idx];
           // Compute exact pixel height
           const barHeightPx = Math.max(28, Math.round(((val - minVal) / range) * MAX_BAR_HEIGHT_PX));
           const color = getBarColor(idx);
@@ -48,8 +101,15 @@ export const ArrayBarChart: React.FC<ArrayBarChartProps> = ({ step, initialArray
 
           return (
             <div
-              key={idx}
-              className="flex-1 max-w-[60px] h-full flex flex-col justify-end items-center gap-1.5 transition-all duration-300"
+              key={itemId}
+              ref={(element) => {
+                if (element) {
+                  itemRefs.current.set(itemId, element);
+                } else {
+                  itemRefs.current.delete(itemId);
+                }
+              }}
+              className="flex-1 max-w-[60px] h-full flex flex-col justify-end items-center gap-1.5 will-change-transform"
             >
               {/* Value on top of bar */}
               <span
@@ -64,7 +124,7 @@ export const ArrayBarChart: React.FC<ArrayBarChartProps> = ({ step, initialArray
 
               {/* Physical Visible Bar */}
               <div
-                className={`w-full rounded-t-lg transition-all duration-300 ${
+                className={`w-full rounded-t-lg transition-[height,background-color,box-shadow,filter] duration-300 ease-in-out ${
                   isExamined
                     ? 'ring-2 ring-white/90 brightness-125 scale-x-105'
                     : 'hover:brightness-110'

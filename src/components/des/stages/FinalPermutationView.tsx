@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import confetti from 'canvas-confetti';
 import { DesTraceStep } from '../../../types/des';
 import { Lock, CheckCircle2, ChevronDown, Lightbulb } from 'lucide-react';
 
@@ -24,7 +25,7 @@ export const FinalPermutationView: React.FC<FinalPermutationViewProps> = ({
     ciphertextHex.toUpperCase() === NIST_CIPHERTEXT.toUpperCase();
 
   const handleCelebrate = () => {
-    // Popper effect removed per user specification
+    confetti({ particleCount: 90, spread: 70, origin: { y: 0.6 } });
   };
 
   return (
