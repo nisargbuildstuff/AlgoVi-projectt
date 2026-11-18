@@ -155,6 +155,9 @@ export const BinarySearchWorkspace: React.FC = () => {
           <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
             Complexity & Prerequisites
           </span>
+          <p className="text-[11px] text-slate-400">
+            Binary search finds a value in a sorted array by repeatedly halving the search range.
+          </p>
           <div className="grid grid-cols-2 gap-2 text-xs">
             <div className="p-2 rounded bg-slate-950/70 border border-slate-800 flex items-center gap-2">
               <Clock className="w-4 h-4 text-emerald-400" />

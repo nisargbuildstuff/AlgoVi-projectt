@@ -345,6 +345,9 @@ export const DesInputSection: React.FC<DesInputSectionProps> = ({
         <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
           Complexity & Properties
         </span>
+        <p className="text-[11px] text-slate-400">
+          DES encrypts data in 64-bit blocks using a shared secret key.
+        </p>
         <div className="grid grid-cols-2 gap-2 text-xs">
           <div className="p-2 rounded bg-slate-950/70 border border-slate-800 flex items-center gap-2">
             <Clock className="w-4 h-4 text-amber-400" />
